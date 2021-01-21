@@ -1,0 +1,35 @@
+server:
+  port: 8001
+
+eureka:
+  instance:
+    hostname: service-sms
+    instance-id: service-sms
+  client:
+    service-url:
+      defaultZone: http://eureka-7900:7900/eureka/
+    register-with-eureka: true
+    enabled: true
+spring:
+  application:
+    name: service-sms
+
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/online-taxi-three?characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    #数据库连接密码
+    password: 123456
+
+
+
+#mybatis配置
+mybatis:
+  #mybatis配置文件所在路径
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  #定义所有操作类的别名所在包
+  type-aliases-package: com.online.taxi.common
+  #所有的mapper映射文件
+  mapper-locations:
+  - classpath:mybatis/mapper/*.xml

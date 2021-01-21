@@ -1,0 +1,49 @@
+server:
+  port: 7900
+
+spring:
+  application:
+    name: eureka
+eureka:
+  client:
+    #是否注册自己
+    register-with-eureka: false
+    #要不要去注册中心获取其他服务的地址
+    fetch-registry: false
+    service-url:
+      defaultZone: http://eureka-7900:7900/eureka/
+  server:
+    #是否自我保护
+    enable-self-preservation: false
+    #  清理间隔时间
+    eviction-interval-timer-in-ms: 5000
+    #    优化 读取read-onlyMap缓存数据
+    use-read-only-response-cache: false
+
+
+---
+spring:
+  profiles: 7900
+server:
+  port: 7900
+eureka:
+  instance:
+    hostname: eureka-7900
+
+---
+spring:
+  profiles: 7901
+server:
+  port: 7901
+eureka:
+  instance:
+    hostname: eureka-7901
+
+---
+spring:
+  profiles: 7902
+server:
+  port: 7902
+eureka:
+  instance:
+    hostname: eureka-7902
