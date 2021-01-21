@@ -37,6 +37,7 @@ public class SmsController {
         if (StringUtils.isEmpty(code)) {
             return ResponseResult.fail();
         }
+        System.out.println(11);
         ResponseResult send = shortMsgService.send(phoneNumber, code);
         int responseCode = send.getCode();
         if (1 == responseCode) {
